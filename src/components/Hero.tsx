@@ -1,6 +1,5 @@
 import { Button } from './ui/button';
 import heroImage from '@/assets/hero-tucuman.jpg';
-import tapirMascot from '@/assets/tapir-mascot.png';
 
 const Hero = () => {
   const scrollToBot = () => {
@@ -41,8 +40,8 @@ const Hero = () => {
         {/* Floating Mascot */}
         <div className="absolute bottom-20 right-10 md:right-20 floating">
           <img 
-            src={tapirMascot} 
-            alt="Tapir mascot" 
+            src="/lovable-uploads/0c0a65d7-41a3-4c72-bba7-0bdf1bf1473c.png" 
+            alt="Tapir mascot with headphones" 
             className="w-24 h-24 md:w-32 md:h-32 object-contain"
           />
         </div>

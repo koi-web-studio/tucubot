@@ -1,5 +1,4 @@
 import { Button } from './ui/button';
-import tapirMascot from '@/assets/tapir-mascot.png';
 
 const FinalCTA = () => {
   const scrollToBot = () => {
@@ -30,8 +29,8 @@ const FinalCTA = () => {
           <div className="hidden md:block">
             <div className="relative">
               <img 
-                src={tapirMascot} 
-                alt="Tapir mascot with sign" 
+                src="/lovable-uploads/0c0a65d7-41a3-4c72-bba7-0bdf1bf1473c.png" 
+                alt="Tapir mascot with headphones" 
                 className="w-32 h-32 object-contain floating"
               />
               <div className="absolute -bottom-4 -right-4 bg-white text-primary px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
