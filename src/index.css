@@ -2,41 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Definition of the design system - Tucumán Travel Theme. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Tucumán Travel Color Palette */
+    --background: 39 35% 92%; /* Crema Claro #F2E6D8 */
+    --foreground: 23 37% 20%; /* Café Quebracho #4A2E1F */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 39 35% 92%;
+    --card-foreground: 23 37% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 39 35% 92%;
+    --popover-foreground: 23 37% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 355 71% 41%; /* Rojo Cardón #B1262B */
+    --primary-foreground: 39 35% 92%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 4 58% 55%; /* Rojo Tierra #D64541 */
+    --secondary-foreground: 39 35% 92%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 39 25% 70%; /* Beige Tela #D5B487 */
+    --muted-foreground: 23 37% 20%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 39 25% 70%;
+    --accent-foreground: 23 37% 20%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 39 35% 92%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 39 20% 85%;
+    --input: 39 20% 85%;
+    --ring: 355 71% 41%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom Tucumán Variables */
+    --hero-gradient: linear-gradient(135deg, 
+      hsl(355 71% 41% / 0.9), 
+      hsl(4 58% 55% / 0.8), 
+      transparent);
+    
+    --hero-separator: linear-gradient(90deg, 
+      hsl(355 71% 41%), 
+      hsl(4 58% 55%), 
+      transparent);
+
+    --shadow-soft: 0 4px 20px hsl(23 37% 20% / 0.1);
+    --shadow-glow: 0 0 30px hsl(355 71% 41% / 0.3);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +118,88 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  /* Hero Gradient Background */
+  .hero-bg {
+    background: var(--hero-gradient);
+  }
+
+  /* Hero Separator Line */
+  .hero-separator {
+    background: var(--hero-separator);
+    height: 2px;
+    width: 100%;
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  /* Bounce animation */
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Floating animation for mascot */
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+
+  @keyframes floating {
+    0%, 100% { transform: translateY(0px) rotate(-2deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+  }
+
+  /* Reveal animations */
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal-up.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Card hover effects */
+  .card-hover {
+    transition: var(--transition-smooth);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 rounded-full font-semibold text-lg transition-smooth;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-3 rounded-full font-semibold transition-smooth;
+  }
+
+  /* Text size utilities */
+  .text-hero {
+    font-size: clamp(3rem, 10vw, 8rem);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+
+  /* Parallax effect */
+  .parallax {
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 }
