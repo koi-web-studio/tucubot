@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import tafiDelValle from '@/assets/tafi-del-valle.jpg';
 import quilmes from '@/assets/quilmes.jpg';
-import casaIndependencia from '@/assets/casa-independencia.jpg';
 import amaicha from '@/assets/amaicha.jpg';
 
 const destinations = [
@@ -23,7 +22,7 @@ const destinations = [
     id: 3,
     name: "Casa de la Independencia",
     location: "San Miguel de Tucumán",
-    image: casaIndependencia,
+    image: "/lovable-uploads/bc0ce520-a6a7-44a8-8edb-81b5ffbbdf05.png",
     description: "Cuna de la independencia argentina"
   },
   {
